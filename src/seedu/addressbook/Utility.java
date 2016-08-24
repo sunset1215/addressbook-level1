@@ -3,8 +3,10 @@ package seedu.addressbook;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Utility {
+public final class Utility {
 
+	private Utility() {}
+	
     /**
      * Removes sign(p/, d/, etc) from parameter string
      *
