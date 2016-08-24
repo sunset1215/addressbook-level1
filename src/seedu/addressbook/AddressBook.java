@@ -207,10 +207,12 @@ public class AddressBook {
         
         // process program args
         if (args.length >= 2) {
+        	// show invalid args message
 		    String[] message1 = { MESSAGE_INVALID_PROGRAM_ARGS };
 			for (String m : message1) {
 			    System.out.println(LINE_PREFIX + m);
 			}
+			// exit program
 		    String[] message2 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
 			for (String m1 : message2) {
 			    System.out.println(LINE_PREFIX + m1);
@@ -219,7 +221,22 @@ public class AddressBook {
 		}
 		
 		if (args.length == 1) {
-		    setupGivenFileForStorage(args[0]);
+			// setup given file for storage
+		    String filePath = args[0];
+			if (!isValidFilePath(filePath)) {
+			    String[] message1 = { String.format(MESSAGE_INVALID_FILE, filePath) };
+				for (String m1 : message1) {
+				    System.out.println(LINE_PREFIX + m1);
+				}
+			    String[] message11 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+				for (String m11 : message11) {
+				    System.out.println(LINE_PREFIX + m11);
+				}
+				System.exit(0);
+			}
+			
+			storageFilePath = filePath;
+			createFileIfMissing(filePath);
 		}
 		
 		if(args.length == 0) {
@@ -261,37 +278,6 @@ public class AddressBook {
 		for (String m : message) {
 		    System.out.println(LINE_PREFIX + m);
 		}
-    }
-
-    /*
-     * ==============NOTE TO STUDENTS==========================================
-     * If the reader wants a deeper understanding of the solution, she can go
-     * to the next level of abstraction by reading the methods (given below)
-     * that is referenced by the method above.
-     * ====================================================================
-     */
-
-    /**
-     * Sets up the storage file based on the supplied file path.
-     * Creates the file if it is missing.
-     * Exits if the file name is not acceptable.
-     */
-    private static void setupGivenFileForStorage(String filePath) {
-
-        if (!isValidFilePath(filePath)) {
-            String[] message = { String.format(MESSAGE_INVALID_FILE, filePath) };
-			for (String m : message) {
-			    System.out.println(LINE_PREFIX + m);
-			}
-            String[] message1 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
-			for (String m1 : message1) {
-			    System.out.println(LINE_PREFIX + m1);
-			}
-			System.exit(0);
-        }
-
-        storageFilePath = filePath;
-        createFileIfMissing(filePath);
     }
 
     /**
