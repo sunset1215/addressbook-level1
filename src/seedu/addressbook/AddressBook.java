@@ -240,7 +240,13 @@ public class AddressBook {
 		}
 		
 		if(args.length == 0) {
-		    setupDefaultFileForStorage();
+			// setup default file for storage
+		    String[] message1 = { MESSAGE_USING_DEFAULT_FILE };
+			for (String m1 : message1) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			storageFilePath = DEFAULT_STORAGE_FILEPATH;
+			createFileIfMissing(storageFilePath);
 		}
 		
 		// load data from storage
@@ -278,20 +284,6 @@ public class AddressBook {
 		for (String m : message) {
 		    System.out.println(LINE_PREFIX + m);
 		}
-    }
-
-    /**
-     * Sets up the storage based on the default file.
-     * Creates file if missing.
-     * Exits program if the file cannot be created.
-     */
-    private static void setupDefaultFileForStorage() {
-        String[] message = { MESSAGE_USING_DEFAULT_FILE };
-		for (String m : message) {
-		    System.out.println(LINE_PREFIX + m);
-		}
-        storageFilePath = DEFAULT_STORAGE_FILEPATH;
-        createFileIfMissing(storageFilePath);
     }
 
     /**
