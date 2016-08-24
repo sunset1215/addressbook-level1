@@ -13,8 +13,8 @@ public final class Command {
     public static final String ADD_WORD = "add";
     public static final String ADD_DESC = "Adds a person to the address book.";
     public static final String ADD_PARAMETERS = "NAME "
-                                                      + AddressBook.PERSON_DATA_PREFIX_PHONE + "PHONE_NUMBER "
-                                                      + AddressBook.PERSON_DATA_PREFIX_EMAIL + "EMAIL";
+                                                      + Person.DATA_PREFIX_PHONE + "PHONE_NUMBER "
+                                                      + Person.DATA_PREFIX_EMAIL + "EMAIL";
     public static final String ADD_EXAMPLE = ADD_WORD + " John Doe p/98765432 e/johnd@gmail.com";
 
     public static final String FIND_WORD = "find";
