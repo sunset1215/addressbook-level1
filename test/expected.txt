@@ -17,6 +17,9 @@
 || list: Displays all persons as a list with index numbers.
 || 	Example: list
 || 
+|| sort: Displays all persons as a list with index numbers in alphabetical order.
+|| 	Example: sort
+|| 
 || delete: Deletes a person identified by the index number used in the last find/list call.
 || 	Parameters: INDEX
 || 	Example: delete 1
@@ -222,6 +225,23 @@
 || 	2. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
 || 
 || 2 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:  add Adele Ang p/111111 e/adele@gmail.com]
+|| New person added: Adele Ang, Phone: 111111, Email: adele@gmail.com
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 	1. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	2. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
+|| 	3. Adele Ang  Phone Number: 111111  Email: adele@gmail.com
+|| 
+|| 3 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:  sort]
+|| 	1. Adele Ang  Phone Number: 111111  Email: adele@gmail.com
+|| 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	3. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
+|| 
+|| 3 persons found!
 || ===================================================
 || Enter command: || [Command entered:  clear]
 || Address book has been cleared!

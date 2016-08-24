@@ -90,6 +90,14 @@
   # listing indexes get updated on next request
   delete 1
   list
+  
+##########################################################
+# test sort command
+##########################################################
+
+  add Adele Ang p/111111 e/adele@gmail.com
+  list
+  sort
 
 ##########################################################
 # test clear command
