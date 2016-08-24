@@ -264,7 +264,13 @@ public class AddressBook {
 			}
 			String userCommand = inputLine;
 			
-            echoUserCommand(userCommand);
+			// echo user command
+            String[] message1 = { "[Command entered:" + userCommand + "]" };
+			for (String m1 : message1) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			
+			
             String feedback = executeCommand(userCommand);
             showResultToUser(feedback);
         }
@@ -272,23 +278,6 @@ public class AddressBook {
 
     private static void showResultToUser(String result) {
         String[] message = { result, DIVIDER };
-		for (String m : message) {
-		    System.out.println(LINE_PREFIX + m);
-		}
-    }
-
-    /*
-     * ==============NOTE TO STUDENTS======================================
-     * Parameter description can be omitted from the method header comment
-     * if the parameter name is self-explanatory.
-     * In the method below, '@param userInput' comment has been omitted.
-     * ====================================================================
-     */
-    /**
-     * Echoes the user input back to the user.
-     */
-    private static void echoUserCommand(String userCommand) {
-        String[] message = { "[Command entered:" + userCommand + "]" };
 		for (String m : message) {
 		    System.out.println(LINE_PREFIX + m);
 		}
