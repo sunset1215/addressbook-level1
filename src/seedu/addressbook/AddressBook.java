@@ -270,17 +270,14 @@ public class AddressBook {
 			    System.out.println(LINE_PREFIX + m1);
 			}
 			
-			
             String feedback = executeCommand(userCommand);
-            showResultToUser(feedback);
+            
+            // show result to user
+            String[] message2 = { feedback, DIVIDER };
+			for (String m2 : message2) {
+			    System.out.println(LINE_PREFIX + m2);
+			}
         }
-    }
-
-    private static void showResultToUser(String result) {
-        String[] message = { result, DIVIDER };
-		for (String m : message) {
-		    System.out.println(LINE_PREFIX + m);
-		}
     }
 
     /**
