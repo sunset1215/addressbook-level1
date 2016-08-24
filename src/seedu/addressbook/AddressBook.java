@@ -211,7 +211,11 @@ public class AddressBook {
 			for (String m : message1) {
 			    System.out.println(LINE_PREFIX + m);
 			}
-		    exitProgram();
+		    String[] message2 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+			for (String m1 : message2) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			System.exit(0);
 		}
 		
 		if (args.length == 1) {
@@ -279,22 +283,15 @@ public class AddressBook {
 			for (String m : message) {
 			    System.out.println(LINE_PREFIX + m);
 			}
-            exitProgram();
+            String[] message1 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+			for (String m1 : message1) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			System.exit(0);
         }
 
         storageFilePath = filePath;
         createFileIfMissing(filePath);
-    }
-
-    /**
-     * Displays the goodbye message and exits the runtime.
-     */
-    private static void exitProgram() {
-        String[] message = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
-		for (String m : message) {
-		    System.out.println(LINE_PREFIX + m);
-		}
-        System.exit(0);
     }
 
     /**
@@ -556,7 +553,11 @@ public class AddressBook {
      * @return feedback display message for the operation result
      */
     private static void executeExitProgramRequest() {
-        exitProgram();
+        String[] message = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+		for (String m : message) {
+		    System.out.println(LINE_PREFIX + m);
+		}
+		System.exit(0);
     }
 
     /*
@@ -693,7 +694,11 @@ public class AddressBook {
 			for (String m : message1) {
 			    System.out.println(LINE_PREFIX + m);
 			}
-            exitProgram();
+            String[] message2 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+			for (String m1 : message2) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			System.exit(0);
         }
     }
 
@@ -711,7 +716,11 @@ public class AddressBook {
 			for (String m : message) {
 			    System.out.println(LINE_PREFIX + m);
 			}
-            exitProgram();
+            String[] message1 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+			for (String m1 : message1) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			System.exit(0);
         }
         return successfullyDecoded.get();
     }
@@ -729,13 +738,21 @@ public class AddressBook {
 			for (String m : message) {
 			    System.out.println(LINE_PREFIX + m);
 			}
-            exitProgram();
+            String[] message1 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+			for (String m1 : message1) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			System.exit(0);
         } catch (IOException ioe) {
             String[] message = { String.format(MESSAGE_ERROR_READING_FROM_FILE, filePath) };
 			for (String m : message) {
 			    System.out.println(LINE_PREFIX + m);
 			}
-            exitProgram();
+            String[] message1 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+			for (String m1 : message1) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			System.exit(0);
         }
         return lines;
     }
@@ -755,7 +772,11 @@ public class AddressBook {
 			for (String m : message) {
 			    System.out.println(LINE_PREFIX + m);
 			}
-            exitProgram();
+            String[] message1 = { MESSAGE_GOODBYE, DIVIDER, DIVIDER };
+			for (String m1 : message1) {
+			    System.out.println(LINE_PREFIX + m1);
+			}
+			System.exit(0);
         }
     }
 
