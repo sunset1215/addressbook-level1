@@ -491,7 +491,7 @@ public class AddressBook {
      * @return feedback display message for the operation result
      */
     private static String executeEditPerson(String commandArgs) {
-    	ArrayList<String> commandArgsList = splitByWhitespace(commandArgs);
+    	ArrayList<String> commandArgsList = processEditPersonArgs(commandArgs);
         if (!isEditPersonArgsValid(commandArgsList)) {
             return getMessageForInvalidCommandInput(COMMAND_EDIT_WORD, getUsageInfoForEditCommand());
         }
@@ -505,7 +505,65 @@ public class AddressBook {
         		                                                         : MESSAGE_PERSON_NOT_IN_ADDRESSBOOK;
     }
     
-    /**
+    private static ArrayList<String> processEditPersonArgs(String commandArgs) {
+		ArrayList<String> commandArgsList = new ArrayList<String>();
+		ArrayList<String> splitCommandArgsList = splitByWhitespace(commandArgs);
+		
+		// process index
+		commandArgsList.add(splitCommandArgsList.remove(0));
+		
+		// process edit person args data
+		String completeNameArg = "";
+		for (int i = 0; i < splitCommandArgsList.size(); i++) {
+			String args = splitCommandArgsList.get(i);
+			// handle email and phone args
+			if (hasPersonDataPrefixEmail(args) || hasPersonDataPrefixPhone(args)) {
+				commandArgsList.add(args);
+				continue;
+			}
+			
+			// handle name args
+			if (hasPersonDataPrefixName(args)) {
+				completeNameArg = args;
+				continue;
+			}
+			
+			completeNameArg += " " + args;
+		}
+		
+		// add edit person name args if exist
+		if (!completeNameArg.equals("")) {
+			commandArgsList.add(completeNameArg);
+		}
+		
+		return commandArgsList;
+	}
+
+	/**
+     * Checks if edit person args has prefix
+     *
+     * @param args raw command args string for the edit person command
+     * @return whether the input args string has person prefix
+     */
+	private static boolean hasPersonDataPrefix(String args) {
+		return hasPersonDataPrefixName(args) &&
+				hasPersonDataPrefixEmail(args) &&
+				hasPersonDataPrefixPhone(args);
+	}
+	
+	private static boolean hasPersonDataPrefixName(String args) {
+		return args.startsWith(PERSON_DATA_PREFIX_NAME);
+	}
+	
+	private static boolean hasPersonDataPrefixEmail(String args) {
+		return args.startsWith(PERSON_DATA_PREFIX_EMAIL);
+	}
+	
+	private static boolean hasPersonDataPrefixPhone(String args) {
+		return args.startsWith(PERSON_DATA_PREFIX_PHONE);
+	}
+
+	/**
      * Checks validity of edit person argument string's format.
      *
      * @param rawArgs raw command args string for the edit person command
@@ -1394,7 +1452,8 @@ public class AddressBook {
      * @return split by whitespace
      */
     private static ArrayList<String> splitByWhitespace(String toSplit) {
-        return new ArrayList(Arrays.asList(toSplit.trim().split("\\s+")));
+        return new ArrayList<String>(Arrays.asList(toSplit.trim().split("\\s+")));
     }
+    
 
 }
