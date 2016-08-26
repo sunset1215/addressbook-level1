@@ -505,6 +505,12 @@ public class AddressBook {
         		                                                         : MESSAGE_PERSON_NOT_IN_ADDRESSBOOK;
     }
     
+    /**
+     * Processes string of edit person command args into list of arguments
+     *
+     * @param commandArgs raw command args string
+     * @return list of arguments for the edit command
+     */
     private static ArrayList<String> processEditPersonArgs(String commandArgs) {
 		ArrayList<String> commandArgsList = new ArrayList<String>();
 		ArrayList<String> splitCommandArgsList = splitByWhitespace(commandArgs);
@@ -540,25 +546,31 @@ public class AddressBook {
 	}
 
 	/**
-     * Checks if edit person args has prefix
+     * Checks if args has person data prefix name
      *
-     * @param args raw command args string for the edit person command
-     * @return whether the input args string has person prefix
+     * @param args raw command args string
+     * @return whether the input args string has person data prefix name
      */
-	private static boolean hasPersonDataPrefix(String args) {
-		return hasPersonDataPrefixName(args) &&
-				hasPersonDataPrefixEmail(args) &&
-				hasPersonDataPrefixPhone(args);
-	}
-	
 	private static boolean hasPersonDataPrefixName(String args) {
 		return args.startsWith(PERSON_DATA_PREFIX_NAME);
 	}
 	
+	/**
+     * Checks if args has person data prefix email
+     *
+     * @param args raw command args string
+     * @return whether the input args string has person data prefix email
+     */
 	private static boolean hasPersonDataPrefixEmail(String args) {
 		return args.startsWith(PERSON_DATA_PREFIX_EMAIL);
 	}
 	
+	/**
+     * Checks if args has person data prefix phone
+     *
+     * @param args raw command args string
+     * @return whether the input args string has person data prefix phone
+     */
 	private static boolean hasPersonDataPrefixPhone(String args) {
 		return args.startsWith(PERSON_DATA_PREFIX_PHONE);
 	}
@@ -1355,9 +1367,9 @@ public class AddressBook {
     }
     
     /**
-     * Builds string for showing 'delete' command usage instruction
+     * Builds string for showing 'edit' command usage instruction
      *
-     * @return  'delete' command usage instruction
+     * @return  'edit' command usage instruction
      */
     private static String getUsageInfoForEditCommand() {
         return String.format(MESSAGE_COMMAND_HELP, COMMAND_EDIT_WORD, COMMAND_EDIT_DESC) + LS
